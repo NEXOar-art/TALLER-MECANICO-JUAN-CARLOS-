@@ -186,7 +186,7 @@ color: rgba(226, 232, 240, 0.5);
 }
 .input-valid{
 border-color:#22C55E!important;
-background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2322c55e'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");
+background-image: url("image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%2322c55e'%3e%3cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3e%3c/svg%3e");
 background-repeat: no-repeat;
 background-position: right 1rem center;
 background-size: 1.3em;
@@ -343,6 +343,19 @@ opacity: 0.7;
 10%{opacity: 0.8;}
 90%{opacity: 0.8;}
 100%{transform: translateY(-20px) translateX(50px); opacity: 0;}
+}
+/* Labels debajo de inputs - NUEVO ESTILO */
+.label-below{
+display: block;
+margin-top: 0.5rem;
+margin-left: 0.25rem;
+font-size: 0.75rem;
+font-weight: 500;
+color: #00D9FF;
+}
+.label-below span.required{
+color: #EF4444;
+margin-left: 2px;
 }
 </style>
 </head>
@@ -725,7 +738,7 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 </div>
 </div>
 </div>
-<!-- Formulario-->
+<!-- Formulario con labels debajo de los campos-->
 <div class="lg:w-2/3 glass-card rounded-3xl shadow-card p-6 md:p-8 w-full">
 <form id="triageForm" class="space-y-7">
 <!-- Sección 1: Vehículo-->
@@ -735,15 +748,15 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 Datos del Vehículo
 </h3>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-<div class="relative">
+<div>
 <input type="text" id="inputVehicle" placeholder="Marca y Modelo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm" required>
-<label class="absolute left-4 top-2.5 bg-primary-dark px-2 text-xs text-primary-cyan font-medium">Vehículo*</label>
+<label for="inputVehicle" class="label-below">Vehículo<span class="required">*</span></label>
 </div>
-<div class="relative">
+<div>
 <input type="number" id="inputKm" placeholder="Kilometraje" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm" required>
-<label class="absolute left-4 top-2.5 bg-primary-dark px-2 text-xs text-primary-cyan font-medium">Kilometraje*</label>
+<label for="inputKm" class="label-below">Kilometraje<span class="required">*</span></label>
 </div>
-<div class="relative">
+<div>
 <select id="inputFuelType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none" required>
 <option value="" disabled selected>Tipo de combustible...</option>
 <option value="Naftero">Naftero(Gasolina)</option>
@@ -751,7 +764,7 @@ Datos del Vehículo
 <option value="Híbrido">Híbrido</option>
 <option value="Eléctrico">Eléctrico</option>
 </select>
-<label class="absolute left-4 top-2.5 bg-primary-dark px-2 text-xs text-primary-cyan font-medium">Combustible*</label>
+<label for="inputFuelType" class="label-below">Combustible<span class="required">*</span></label>
 <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
 </div>
 </div>
@@ -762,11 +775,11 @@ Datos del Vehículo
 <span class="bg-gradient-to-r from-primary-cyan to-primary-blue text-primary-dark w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
 Descripción de Fallas
 </h3>
-<div class="relative mb-4">
+<div class="mb-4">
 <textarea id="inputSymptoms" rows="3" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..." class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm resize-none" required></textarea>
-<label class="absolute left-4 top-2.5 bg-primary-dark px-2 text-xs text-primary-cyan font-medium">Síntomas*</label>
+<label for="inputSymptoms" class="label-below">Síntomas<span class="required">*</span></label>
 </div>
-<div class="relative">
+<div>
 <select id="inputContext" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
 <option value="" disabled selected>Contexto de la falla...</option>
 <optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300">
@@ -794,7 +807,7 @@ Descripción de Fallas
 <option value="falla_caliente">Solo falla en caliente</option>
 <option value="falla_intermitente">Falla intermitente</option>
 </select>
-<label class="absolute left-4 top-2.5 bg-primary-dark px-2 text-xs text-primary-cyan font-medium">Contexto</label>
+<label for="inputContext" class="label-below">Contexto</label>
 <i class="fa-solid fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
 </div>
 </div>
@@ -805,13 +818,13 @@ Descripción de Fallas
 Datos de Contacto
 </h3>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<div class="relative">
+<div>
 <input type="text" id="inputName" placeholder="Tu nombre completo" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm" required>
-<label class="absolute left-4 top-2.5 bg-primary-dark px-2 text-xs text-primary-cyan font-medium">Nombre*</label>
+<label for="inputName" class="label-below">Nombre<span class="required">*</span></label>
 </div>
-<div class="relative">
+<div>
 <input type="tel" id="inputPhone" placeholder="WhatsApp para contacto" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm">
-<label class="absolute left-4 top-2.5 bg-primary-dark px-2 text-xs text-primary-cyan font-medium">WhatsApp</label>
+<label for="inputPhone" class="label-below">WhatsApp</label>
 </div>
 </div>
 <p class="text-xs text-gray-500 mt-3 flex items-center gap-1.5">
@@ -1140,6 +1153,7 @@ behavior:'smooth'
 </script>
 </body>
 </html>
+
 
 
 
