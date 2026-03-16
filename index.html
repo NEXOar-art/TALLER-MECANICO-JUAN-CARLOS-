@@ -80,7 +80,6 @@ font-feature-settings:"cv02","cv03","cv04","cv11";
 overflow-x: hidden;
 position: relative;
 }
-
 /* Background Image with Animation */
 body::before{
 content:'';
@@ -97,7 +96,6 @@ opacity: 0.15;
 z-index: -2;
 animation: backgroundMove 30s ease-in-out infinite;
 }
-
 @keyframes backgroundMove{
 0%, 100%{
 transform: scale(1) translate(0, 0);
@@ -112,7 +110,6 @@ transform: scale(1) translate(0, -2%);
 transform: scale(1.05) translate(1%, -1%);
 }
 }
-
 /* Glassmorphism moderno*/
 .glass{
 background: rgba(30, 42, 58, 0.75);
@@ -845,29 +842,6 @@ Completa el formulario y nuestros técnicos prepararán el análisis previo ante
 <div>
 <select id="inputFuelType" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none" required>
 <option value="" disabled selected data-es="Tipo de combustible..." data-en="Fuel type...">Tipo de combustible...</option>
-<option value="Naftero" data-es="Naftero(Gasolina)" data-en="Gasoline">Naftero(Gasolina)</option>
-<option value="Diesel" data-es="Diesel" data-en="Diesel">Diesel</option>
-<option value="Híbrido" data-es="Híbrido" data-en="Hybrid">Híbrido</option>
-<option value="Eléctrico" data-es="Eléctrico" data-en="Electric">Eléctrico</option>
-</select>
-<label for="inputFuelType" class="label-below"><span data-es="Combustible" data-en="Fuel">Combustible</span><span class="required">*</span></label>
-<i class="fa-solid fa-chevron-down absolute right-4 top-[10.9rem] md:top-[4.65rem] -translate-y-1/2 text-gray-500 text-xs pointer-events-none"></i>
-</div>
-</div>
-</div>
-<!-- Sección 2: Síntomas-->
-<div class="border-b border-white/10 pb-5">
-<h3 class="text-lg font-bold text-white mb-5 flex items-center gap-3">
-<span class="bg-gradient-to-r from-primary-red to-red-700 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">2</span>
-<span data-es="Descripción de Fallas" data-en="Failure Description">Descripción de Fallas</span>
-</h3>
-<div class="mb-4">
-<textarea id="inputSymptoms" rows="3" placeholder="Describe ruidos, olores, vibraciones, luces de alerta..." class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm resize-none" required></textarea>
-<label for="inputSymptoms" class="label-below"><span data-es="Síntomas" data-en="Symptoms">Síntomas</span><span class="required">*</span></label>
-</div>
-<div>
-<select id="inputContext" class="input-modern w-full bg-transparent p-4 rounded-xl outline-none text-sm appearance-none">
-<option value="" disabled selected data-es="Contexto de la falla..." data-en="Failure context...">Contexto de la falla...</option>
 <optgroup label="🔋 ARRANQUE Y ENERGÍA" class="text-gray-300">
 <option value="no_arranca_gira" data-es="Gira pero no arranca" data-en="Cranks but won't start">Gira pero no arranca</option>
 <option value="no_arranca_nada" data-es="No da contacto" data-en="No contact">No da contacto</option>
@@ -1189,7 +1163,7 @@ const name= document.getElementById('inputName').value||'Cliente';
 const phone= document.getElementById('inputPhone').value||'No proporcionado';
 // Mensaje para WhatsApp con el nuevo número
 const message=`🚗 *¡Hola MECANICA DUBOIS!* 👋
- *Cliente:* ${name}
+*Cliente:* ${name}
 📱 *Contacto:* ${phone}
 🚘 *Tipo de Vehículo:* ${vehicleType}
 *Vehículo:* ${vehicle}
